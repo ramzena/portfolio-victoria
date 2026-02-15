@@ -1,416 +1,764 @@
 <!DOCTYPE html>
-<html lang="en" class="translated-ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Victoria Stellar — AI Content Creator & Bestselling Author</title>
-    <link href="./Victoria Stellar — AI Content Creator & Bestselling Author_files/css2" rel="stylesheet">
-    <style>
-              :root {
-                            --bg: #0a0a0f;
-                            --bg2: #121212;
-                            --bg3: #1a1a28;
-                            --text: #e8e6e3;
-                            --text-dim: #8a8a9e;
-                            --accent: #c0392b;
-                            --accent-glow: #e74c3c;
-                            --gold: #d4af37;
-                            --heading: 'Playfair Display', Georgia, serif;
-                            --body: 'Raleway', sans-serif;
-              }
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Victoria Stellar — AI Content Creator & Bestselling Author</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0f;
+  --bg2: #12121a;
+  --bg3: #1a1a28;
+  --text: #e8e6e3;
+  --text-dim: #8a8a9a;
+  --accent: #c0392b;
+  --accent-glow: #e74c3c;
+  --gold: #d4a853;
+  --heading: 'Playfair Display', Georgia, serif;
+  --body: 'Raleway', sans-serif;
+}
 
-              * {
-                            margin: 0;
-                            padding: 0;
-                            box-sizing: border-box;
-              }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-              html, body {
-                            width: 100%;
-                            height: 100%;
-              }
+html { scroll-behavior: smooth; }
 
-              body {
-                            background: linear-gradient(135deg, var(--bg) 0%, var(--bg2) 50%, var(--bg3) 100%);
-                            color: var(--text);
-                            font-family: var(--body);
-                            line-height: 1.6;
-                            overflow-x: hidden;
-              }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
 
-              /* Navigation */
-              nav {
-                            position: fixed;
-                            top: 0;
-                            left: 0;
-                            right: 0;
-                            padding: 2rem;
-                            display: flex;
-                            justify-content: space-between;
-                            align-items: center;
-                            background: rgba(10, 10, 15, 0.95);
-                            backdrop-filter: blur(10px);
-                            z-index: 1000;
-                            border-bottom: 1px solid rgba(192, 57, 43, 0.2);
-              }
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+}
 
-              nav .logo {
-                            font-family: var(--heading);
-                            font-size: 1.5rem;
-                            font-weight: 700;
-                            color: var(--accent-glow);
-              }
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: rgba(10,10,15,0.92);
+  backdrop-filter: blur(20px);
+  z-index: 1000;
+  padding: 0 2rem;
+  border-bottom: 1px solid rgba(192,57,43,0.15);
+}
 
-              nav ul {
-                            list-style: none;
-                            display: flex;
-                            gap: 2rem;
-                            align-items: center;
-              }
+nav .nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+}
 
-              nav a {
-                            color: var(--text);
-                            text-decoration: none;
-                            font-size: 0.95rem;
-                            text-transform: uppercase;
-                            letter-spacing: 1px;
-                            transition: color 0.3s ease;
-              }
+nav .logo {
+  font-family: var(--heading);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 2px;
+}
 
-              nav a:hover {
-                            color: var(--accent-glow);
-              }
+nav .logo span { color: var(--accent); }
 
-              /* Hero Section */
-              .hero {
-                            min-height: 100vh;
-                            display: flex;
-                            flex-direction: column;
-                            justify-content: center;
-                            align-items: center;
-                            text-align: center;
-                            padding: 2rem;
-                            position: relative;
-                            overflow: hidden;
-              }
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
 
-              .hero::before {
-                            content: '';
-                            position: absolute;
-                            top: 50%;
-                            left: 50%;
-                            transform: translate(-50%, -50%);
-                            width: 500px;
-                            height: 500px;
-                            background: radial-gradient(circle, rgba(224, 76, 60, 0.15) 0%, transparent 70%);
-                            filter: blur(40px);
-                            z-index: 0;
-              }
+nav a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
 
-              .hero-content {
-                            position: relative;
-                            z-index: 1;
-                            max-width: 900px;
-              }
+nav a:hover { color: var(--accent); }
 
-              h1 {
-                            font-family: var(--heading);
-                            font-size: clamp(3rem, 8vw, 5.5rem);
-                            font-weight: 700;
-                            line-height: 1.1;
-                            margin-bottom: 1rem;
-                            color: var(--text);
-              }
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6rem 2rem 4rem;
+  position: relative;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(192,57,43,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 50%, rgba(212,168,83,0.05) 0%, transparent 50%),
+    var(--bg);
+}
 
-              h1 .accent {
-                            color: var(--accent-glow);
-              }
+.hero-content { max-width: 800px; }
 
-              .tagline {
-                            font-family: var(--heading);
-                            font-size: clamp(1.2rem, 3vw, 1.8rem);
-                            color: var(--text-dim);
-                            margin-bottom: 2.5rem;
-                            font-style: italic;
-              }
+.hero h1 {
+  font-family: var(--heading);
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+  letter-spacing: -1px;
+  animation: fadeUp 1s ease-out;
+}
 
-              .stats {
-                            display: grid;
-                            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-                            gap: 2rem;
-                            margin-bottom: 3rem;
-                            justify-items: center;
-              }
+.hero h1 span {
+  background: linear-gradient(135deg, var(--accent), var(--accent-glow), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 
-              .stat {
-                            text-align: center;
-              }
+.hero .tagline {
+  font-family: var(--heading);
+  font-size: clamp(1rem, 2.2vw, 1.4rem);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--text-dim);
+  margin-bottom: 2rem;
+  animation: fadeUp 1s ease-out 0.2s both;
+}
 
-              .stat-number {
-                            font-family: var(--heading);
-                            font-size: clamp(2.5rem, 5vw, 3.5rem);
-                            font-weight: 700;
-                            color: var(--accent-glow);
-                            margin-bottom: 0.5rem;
-              }
+.hero .stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+  animation: fadeUp 1s ease-out 0.4s both;
+}
 
-              .stat-label {
-                            color: var(--text-dim);
-                            font-size: 0.9rem;
-                            text-transform: uppercase;
-                            letter-spacing: 1px;
-              }
+.hero .stat-item { text-align: center; }
 
-              /* Full Portfolio Section */
-              .full-portfolio {
-                            text-align: center;
-                            margin-bottom: 2.5rem;
-              }
+.hero .stat-num {
+  font-family: var(--heading);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  display: block;
+}
 
-              .full-portfolio h2 {
-                            font-family: var(--heading);
-                            font-size: clamp(2rem, 5vw, 3.5rem);
-                            color: var(--accent-glow);
-                            margin-bottom: 1rem;
-              }
+.hero .stat-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-dim);
+}
 
-              .portfolio-subtitle {
-                            color: var(--text-dim);
-                            font-size: 1.1rem;
-                            margin-bottom: 2rem;
-              }
+.hero .cta-row {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  animation: fadeUp 1s ease-out 0.6s both;
+}
 
-              /* CTA Buttons */
-              .cta-buttons {
-                            display: flex;
-                            flex-wrap: wrap;
-                            gap: 1.5rem;
-                            justify-content: center;
-                            margin-top: 2rem;
-              }
+.btn {
+  display: inline-block;
+  padding: 0.9rem 2.2rem;
+  font-family: var(--body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
 
-              button, .cta-btn {
-                            padding: 1rem 2.5rem;
-                            font-size: 1rem;
-                            text-transform: uppercase;
-                            letter-spacing: 1.5px;
-                            border: none;
-                            cursor: pointer;
-                            transition: all 0.3s ease;
-                            font-family: var(--body);
-                            font-weight: 600;
-              }
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  border: 1px solid var(--accent);
+}
 
-              .btn-primary {
-                            background: var(--accent-glow);
-                            color: white;
-              }
+.btn-primary:hover {
+  background: transparent;
+  color: var(--accent);
+  box-shadow: 0 0 30px rgba(192,57,43,0.3);
+}
 
-              .btn-primary:hover {
-                            background: var(--accent);
-                            box-shadow: 0 0 20px rgba(224, 76, 60, 0.5);
-              }
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.2);
+}
 
-              .btn-secondary {
-                            background: transparent;
-                            color: var(--text);
-                            border: 2px solid var(--accent-glow);
-              }
+.btn-outline:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
 
-              .btn-secondary:hover {
-                            background: var(--accent-glow);
-                            color: white;
-              }
+section {
+  padding: 6rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
 
-              /* About Section */
-              .about {
-                            min-height: 100vh;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            padding: 4rem 2rem;
-                            background: linear-gradient(180deg, rgba(10, 10, 15, 0.8), rgba(18, 18, 18, 0.8));
-              }
+.section-title {
+  font-family: var(--heading);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
 
-              .about-content {
-                            max-width: 800px;
-                            text-align: center;
-              }
+.section-title span { color: var(--accent); }
 
-              .about h2 {
-                            font-family: var(--heading);
-                            font-size: 3rem;
-                            margin-bottom: 2rem;
-                            color: var(--accent-glow);
-              }
+.section-subtitle {
+  color: var(--text-dim);
+  font-size: 1rem;
+  margin-bottom: 3rem;
+  font-style: italic;
+  font-family: var(--heading);
+}
 
-              .about p {
-                            font-size: 1.1rem;
-                            line-height: 1.8;
-                            color: var(--text);
-                            margin-bottom: 1.5rem;
-              }
+#about {
+  background: var(--bg2);
+  max-width: none;
+  padding: 6rem 2rem;
+}
 
-              /* Footer */
-              footer {
-                            background: var(--bg2);
-                            color: var(--text-dim);
-                            text-align: center;
-                            padding: 2rem;
-                            border-top: 1px solid rgba(192, 57, 43, 0.2);
-              }
+#about .about-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
 
-              footer p {
-                            margin: 0.5rem 0;
-              }
+.about-text p {
+  margin-bottom: 1.2rem;
+  font-size: 1rem;
+  color: var(--text);
+}
 
-              /* Responsive */
-              @media (max-width: 768px) {
-                            nav {
-                                              flex-direction: column;
-                                              padding: 1rem;
-                                              gap: 1rem;
-                            }
+.about-text strong { color: var(--gold); font-weight: 600; }
 
-                            nav ul {
-                                              gap: 1rem;
-                            }
+.about-highlights { display: grid; gap: 1.5rem; }
 
-                            .stats {
-                                              gap: 1rem;
-                            }
+.highlight-card {
+  background: var(--bg3);
+  border-left: 3px solid var(--accent);
+  padding: 1.5rem;
+  border-radius: 0 4px 4px 0;
+  transition: transform 0.3s;
+}
 
-                            .cta-buttons {
-                                              flex-direction: column;
-                            }
+.highlight-card:hover { transform: translateX(8px); }
 
-                            button, .cta-btn {
-                                              width: 100%;
-                            }
-              }
+.highlight-card h3 {
+  font-family: var(--heading);
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+  color: var(--accent);
+}
 
-              /* Animations */
-              @keyframes fadeIn {
-                            from {
-                                              opacity: 0;
-                                              transform: translateY(20px);
-                            }
-                            to {
-                                              opacity: 1;
-                                              transform: translateY(0);
-                            }
-              }
+.highlight-card p {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+}
 
-              .hero-content {
-                            animation: fadeIn 0.8s ease-out;
-              }
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
 
-              /* Text animation on scroll */
-              .fade-in {
-                            opacity: 0;
-                            transform: translateY(30px);
-                            transition: all 0.6s ease;
-              }
+.video-card {
+  background: var(--bg2);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-decoration: none;
+  color: inherit;
+}
 
-              .fade-in.visible {
-                            opacity: 1;
-                            transform: translateY(0);
-              }
-          </style>
+.video-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.video-thumb {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: var(--bg3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.video-thumb::before {
+  content: '\25B6';
+  font-size: 3rem;
+  color: rgba(255,255,255,0.7);
+  z-index: 2;
+  transition: transform 0.3s;
+}
+
+.video-card:hover .video-thumb::before { transform: scale(1.2); }
+
+.video-thumb::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(192,57,43,0.2), rgba(0,0,0,0.5));
+}
+
+.video-info { padding: 1.5rem; }
+
+.video-info h3 {
+  font-family: var(--heading);
+  font-size: 1.15rem;
+  margin-bottom: 0.4rem;
+}
+
+.video-info .tag {
+  display: inline-block;
+  background: rgba(192,57,43,0.15);
+  color: var(--accent);
+  padding: 0.2rem 0.7rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 2px;
+  margin-right: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.video-info p {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  margin-top: 0.6rem;
+}
+
+.writing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.writing-card {
+  background: var(--bg2);
+  border: 1px solid rgba(255,255,255,0.05);
+  padding: 2rem;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+
+.writing-card:hover { border-color: var(--accent); }
+
+.writing-card::before {
+  content: attr(data-number);
+  position: absolute;
+  top: -10px;
+  right: 15px;
+  font-family: var(--heading);
+  font-size: 5rem;
+  font-weight: 900;
+  color: rgba(192,57,43,0.07);
+}
+
+.writing-card h3 {
+  font-family: var(--heading);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--gold);
+}
+
+.writing-card p {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+}
+
+#skills { background: var(--bg2); max-width: none; }
+#skills .skills-inner { max-width: 1100px; margin: 0 auto; }
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.skill-group {
+  background: var(--bg3);
+  padding: 1.8rem;
+  border-radius: 4px;
+  border-top: 2px solid var(--accent);
+}
+
+.skill-group h3 {
+  font-family: var(--heading);
+  font-size: 1rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+.skill-tag {
+  background: rgba(255,255,255,0.05);
+  color: var(--text-dim);
+  padding: 0.35rem 0.8rem;
+  font-size: 0.8rem;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.skill-tag:hover {
+  background: rgba(192,57,43,0.15);
+  color: var(--accent);
+}
+
+#contact { text-align: center; }
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.contact-item { text-align: center; min-width: 160px; }
+
+.contact-item .label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-dim);
+  margin-bottom: 0.3rem;
+}
+
+.contact-item .value {
+  font-family: var(--heading);
+  font-size: 1.05rem;
+  color: var(--text);
+}
+
+.contact-item a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.contact-item a:hover { color: var(--gold); }
+
+footer {
+  text-align: center;
+  padding: 3rem 2rem;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  nav ul { display: none; }
+  #about .about-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .hero .stats { gap: 1.5rem; }
+  section { padding: 4rem 1.5rem; }
+}
+</style>
 </head>
+<body>
 
-  <body>
-        <!-- Navigation -->
-        <nav>
-                  <div class="logo">V. STELLAR</div>div>
-                  <ul>
-                                <li><a href="#home">HOME</a>a></li>
-                              <li><a href="#video">VIDEO</a>a></li>
-                              <li><a href="#books">BOOKS</a>a></li>
-                              <li><a href="#achievements">SKILLS</a>a></li>
-                              <li><a href="#contact">CONTACT</a>a></li>
-                  </ul>
-        </nav>
-  
-      <!-- Hero Section -->
-      <section class="hero" id="home">
-              <div class="hero-content">
-                          <h1>Victoria <span class="accent">Stellar</span>span></h1>
-                          <p class="tagline">AI Content Creator • Screenwriter • Bestselling Author</p>p>
-              
-                          <div class="stats">
-                                          <div class="stat">
-                                                              <div class="stat-number">170+</div>div>
-                                                              <div class="stat-label">Published Novels</div>div>
-                                          </div>div>
-                                          <div class="stat">
-                                                              <div class="stat-number">20+</div>div>
-                                                              <div class="stat-label">Years Writing</div>div>
-                                          </div>div>
-                                          <div class="stat">
-                                                              <div class="stat-number">500K+</div>div>
-                                                              <div class="stat-label">Readers</div>div>
-                                          </div>div>
-                          </div>div>
-              
-                          <div class="full-portfolio">
-                                          <h2>Full Service</h2>
-                                          <p class="portfolio-subtitle">AI-powered Content Creator</p>p>
-                          </div>div>
-              
-                          <div class="cta-buttons">
-                                          <button class="btn-primary">View My Work</button>button>
-                                          <button class="btn-secondary">Get In Touch</button>button>
-                          </div>div>
-              </div>div>
-      </section>section>
-  
-      <!-- About Section -->
-      <section class="about" id="about">
-              <div class="about-content">
-                          <h2>About Me</h2>
-                          <p>I'm a passionate content creator with expertise in AI-driven storytelling, screenwriting, and novel writing. With over 20 years of experience, I've published 170+ novels and reached over 500,000 readers worldwide.</p>
-                          <p>My unique blend of traditional writing craft and cutting-edge AI technology allows me to create compelling narratives that resonate with diverse audiences.</p>
-              </div>div>
-      </section>section>
-  
-      <!-- Footer -->
-      <footer>
-                <p>&copy; 2024 Victoria Stellar. All rights reserved.</p>p>
-                <p>Email: victoria@stellar.com | Phone: +1 (555) 123-4567</p>p>
-      </footer>
+<nav>
+  <div class="nav-inner">
+    <div class="logo">V<span>.</span> STELLAR</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#reel">Video Reel</a></li>
+      <li><a href="#writing">Writing</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
-        <script>
-                  // Smooth scroll navigation
-                  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                                anchor.addEventListener('click', function (e) {
-                                                  e.preventDefault();
-                                                  const target = document.querySelector(this.getAttribute('href'));
-                                                  if (target) {
-                                                                        target.scrollIntoView({ behavior: 'smooth' });
-                                                  }
-                                });
-                  });
+<section class="hero">
+  <div class="hero-content">
+    <h1>Victoria <span>Stellar</span></h1>
+    <p class="tagline">AI Content Creator &bull; Screenwriter &bull; Bestselling Author</p>
+    <div class="stats">
+      <div class="stat-item">
+        <span class="stat-num">170+</span>
+        <span class="stat-label">Novels Published</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">20+</span>
+        <span class="stat-label">Years Writing</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">500K+</span>
+        <span class="stat-label">Readers</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">Full</span>
+        <span class="stat-label">AI Pipeline</span>
+      </div>
+    </div>
+    <div class="cta-row">
+      <a href="#reel" class="btn btn-primary">Watch My Work</a>
+      <a href="#contact" class="btn btn-outline">Get in Touch</a>
+    </div>
+  </div>
+</section>
 
-                  // Scroll animations
-                  const observerOptions = {
-                                threshold: 0.1,
-                                rootMargin: '0px 0px -100px 0px'
-                  };
+<section id="about">
+  <div class="about-inner">
+    <div class="about-text">
+      <h2 class="section-title">About <span>Me</span></h2>
+      <p class="section-subtitle">The storyteller behind the screen</p>
+      <p>I am a <strong>bestselling romance author</strong> with over 20 years of professional writing experience and <strong>170+ published novels</strong> across dark romance, contemporary romance, fantasy, and psychological drama.</p>
+      <p>Published under multiple pen names — <strong>Uliana Soboleva</strong>, <strong>Melania Soboleva</strong>, and others — my books have reached over 500,000 readers on platforms like LitRes, MyBook, Bookmate, and Amazon.</p>
+      <p>In 2024, I expanded into <strong>AI-powered video production</strong>, independently creating cinematic trailers, animated series, and vertical short drama content. I handle the entire pipeline: writing, visual generation, voice acting, sound design, editing, and post-production.</p>
+      <p><strong>My unique value:</strong> I am that rare combination of a master storyteller who understands cliffhanger-driven episodic pacing AND the technical ability to produce AI video content at scale. Most AI creators lack narrative depth. Most writers lack production skills. I deliver both.</p>
+    </div>
+    <div class="about-highlights">
+      <div class="highlight-card">
+        <h3>170+ Novels</h3>
+        <p>Each one a ready-made IP for vertical series adaptation. 60–100 episodes per book.</p>
+      </div>
+      <div class="highlight-card">
+        <h3>Full AI Pipeline</h3>
+        <p>Concept → Screenplay → Storyboard → Visual Generation → Voice → Music → Editing → Delivery</p>
+      </div>
+      <div class="highlight-card">
+        <h3>Fine Arts Education</h3>
+        <p>Kharkiv National Pedagogical University, Faculty of Art (2002). Trained eye for composition and color.</p>
+      </div>
+      <div class="highlight-card">
+        <h3>War-Zone Resilience</h3>
+        <p>Relocated family of 7 from Kharkiv while maintaining full creative output. I deliver under any conditions.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-                  const observer = new IntersectionObserver(function(entries) {
-                                entries.forEach(entry => {
-                                                  if (entry.isIntersecting) {
-                                                                        entry.target.classList.add('visible');
-                                                  }
-                                });
-                  }, observerOptions);
+<section id="reel">
+  <h2 class="section-title">Video <span>Reel</span></h2>
+  <p class="section-subtitle">AI-generated content — from concept to final cut, all by me</p>
 
-                  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-        </script>
-  </body>
-</html>html>
-        </script>
-      </footer></p></p></h2></h1></li></li>
-                  </ul>
-        </nav>
-  </body>
-    </style></title></head>
+  <div class="video-grid">
+
+    <a class="video-card" href="https://www.youtube.com/shorts/xj2IGjGY5dc" target="_blank">
+      <div class="video-thumb" style="background: linear-gradient(135deg, #2d1b69, #1a1a2e);"></div>
+      <div class="video-info">
+        <div><span class="tag">Animation</span><span class="tag">Education</span><span class="tag">YouTube</span></div>
+        <h3>"CHUCHI" — AI Animated Series</h3>
+        <p>Educational animated series for toddlers. Original characters, music, storylines. Fully AI-generated. Published on YouTube.</p>
+      </div>
+    </a>
+
+    <a class="video-card" href="https://youtu.be/0q6-XvxZEpI" target="_blank">
+      <div class="video-thumb" style="background: linear-gradient(135deg, #1a2a1a, #0a0a0f);"></div>
+      <div class="video-info">
+        <div><span class="tag">Cinematic</span><span class="tag">WWII</span><span class="tag">Trailer</span></div>
+        <h3>"LAST ORDER" — Cinematic AI Trailer</h3>
+        <p>WWII military drama trailer. Kling AI / Veo 3 video generation + Suno AI original score + DaVinci Resolve editing.</p>
+      </div>
+    </a>
+
+    <a class="video-card" href="https://youtube.com/shorts/Zz0-B1CGSs0?feature=share" target="_blank">
+      <div class="video-thumb" style="background: linear-gradient(135deg, #2e0a0a, #0a0a0f);"></div>
+      <div class="video-info">
+        <div><span class="tag">Dark Romance</span><span class="tag">Vertical Series</span><span class="tag">Pilot</span></div>
+        <h3>"Betrayal Without Mercy" — Short Drama</h3>
+        <p>Dark romance vertical series pilot. Screenplay adapted from my own novel. AI visuals, voice, music, editing. ReelShort/MyDrama format.</p>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<section id="writing" style="background: var(--bg2); max-width: none;">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <h2 class="section-title">Writing <span>Portfolio</span></h2>
+    <p class="section-subtitle">20 years, 170+ novels, millions of words that keep readers turning pages</p>
+
+    <div class="writing-grid">
+      <div class="writing-card" data-number="01">
+        <h3>Dark Romance</h3>
+        <p>60+ titles as Uliana Soboleva. Obsession, power dynamics, forbidden desire, revenge arcs, morally gray heroes. Top-performing genre in microdrama market.</p>
+      </div>
+      <div class="writing-card" data-number="02">
+        <h3>Contemporary Romance</h3>
+        <p>Emotional depth, complex relationships, slice-of-life drama. Published under Melania Soboleva and other pen names.</p>
+      </div>
+      <div class="writing-card" data-number="03">
+        <h3>Fantasy & Historical</h3>
+        <p>World-building, period settings, magical realism. Demonstrates versatility beyond romance genre.</p>
+      </div>
+      <div class="writing-card" data-number="04">
+        <h3>Screenwriting</h3>
+        <p>Adapted own novels into vertical series screenplays. Cliffhanger-driven episodic pacing, 1–3 minute episodes, mobile-first format.</p>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top: 3rem;">
+      <p style="color: var(--text-dim); font-style: italic; font-family: var(--heading); font-size: 1.1rem;">
+        "Every chapter ending in my books is a cliffhanger — the exact mechanic that drives microdrama retention."
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="skills-inner">
+    <h2 class="section-title">Skills & <span>Tools</span></h2>
+    <p class="section-subtitle">Everything needed to create content from script to screen</p>
+
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h3>AI Video Production</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Kling AI</span>
+          <span class="skill-tag">Veo 3</span>
+          <span class="skill-tag">Runway ML</span>
+          <span class="skill-tag">Midjourney</span>
+          <span class="skill-tag">DALL-E</span>
+          <span class="skill-tag">Suno AI</span>
+          <span class="skill-tag">ElevenLabs</span>
+          <span class="skill-tag">HeyGen</span>
+          <span class="skill-tag">Pika Labs</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Editing & Post</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">DaVinci Resolve</span>
+          <span class="skill-tag">CapCut</span>
+          <span class="skill-tag">Adobe Premiere</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Writing & Narrative</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Novel Writing</span>
+          <span class="skill-tag">Screenwriting</span>
+          <span class="skill-tag">Episodic Structure</span>
+          <span class="skill-tag">Cliffhanger Pacing</span>
+          <span class="skill-tag">Character Arcs</span>
+          <span class="skill-tag">Dialogue</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>AI & Prompt Engineering</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">ChatGPT</span>
+          <span class="skill-tag">Claude AI</span>
+          <span class="skill-tag">Complex Prompts</span>
+          <span class="skill-tag">Character Consistency</span>
+          <span class="skill-tag">Multi-Tool Pipelines</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Visual Arts</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Drawing</span>
+          <span class="skill-tag">Digital Illustration</span>
+          <span class="skill-tag">Composition</span>
+          <span class="skill-tag">Color Theory</span>
+          <span class="skill-tag">Storyboarding</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Languages</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Russian — Native</span>
+          <span class="skill-tag">Ukrainian — Native</span>
+          <span class="skill-tag">English — Professional</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2 class="section-title">Get in <span>Touch</span></h2>
+  <p class="section-subtitle">Open for collaboration, full-time remote, and freelance projects</p>
+
+  <div class="contact-links">
+    <div class="contact-item">
+      <div class="label">Email</div>
+      <div class="value"><a href="mailto:ramzena@gmail.com">ramzena@gmail.com</a></div>
+    </div>
+    <div class="contact-item">
+      <div class="label">Telegram</div>
+      <div class="value"><a href="https://t.me/uliana_Soboleva_avtorka" target="_blank">@uliana_Soboleva_avtorka</a></div>
+    </div>
+    <div class="contact-item">
+      <div class="label">LinkedIn</div>
+      <div class="value"><a href="https://linkedin.com/in/victoriastellar" target="_blank">victoriastellar</a></div>
+    </div>
+    <div class="contact-item">
+      <div class="label">YouTube</div>
+      <div class="value"><a href="https://www.youtube.com/@LittleChuchi" target="_blank">@LittleChuchi</a></div>
+    </div>
+  </div>
+
+  <div style="margin-top: 3rem;">
+    <a href="mailto:ramzena@gmail.com" class="btn btn-primary">Hire Me</a>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 Victoria Stellar. All rights reserved.</p>
+  <p style="margin-top: 0.5rem; font-size: 0.75rem;">AI Content Creator &bull; Screenwriter &bull; Author of 170+ Novels</p>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const faders = document.querySelectorAll('.video-card, .highlight-card, .writing-card, .skill-group, .contact-item');
+  faders.forEach(el => el.classList.add('fade-in'));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  faders.forEach(el => observer.observe(el));
+});
+</script>
+
+</body>
+</html>
