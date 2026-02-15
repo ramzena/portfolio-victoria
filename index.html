@@ -1,797 +1,416 @@
 <!DOCTYPE html>
-<!-- saved from url=(0063)file:///Users/ramzena/Downloads/portfolio_victoria_stellar.html -->
-<html lang="ru" class="translated-ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Victoria Stellar — AI Content Creator &amp; Bestselling Author</title>
-<link href="./Victoria Stellar — AI Content Creator &amp; Bestselling Author_files/css2" rel="stylesheet">
-<style>
-:root {
-  --bg: #0a0a0f;
-  --bg2: #12121a;
-  --bg3: #1a1a28;
-  --text: #e8e6e3;
-  --text-dim: #8a8a9a;
-  --accent: #c0392b;
-  --accent-glow: #e74c3c;
-  --gold: #d4a853;
-  --heading: 'Playfair Display', Georgia, serif;
-  --body: 'Raleway', sans-serif;
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
-
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--body);
-  font-weight: 300;
-  line-height: 1.7;
-  overflow-x: hidden;
-}
-
-/* === NOISE OVERLAY === */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 9999;
-}
-
-/* === NAVIGATION === */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  background: rgba(10,10,15,0.92);
-  backdrop-filter: blur(20px);
-  z-index: 1000;
-  padding: 0 2rem;
-  border-bottom: 1px solid rgba(192,57,43,0.15);
-}
-
-nav .nav-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 64px;
-}
-
-nav .logo {
-  font-family: var(--heading);
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--text);
-  letter-spacing: 2px;
-}
-
-nav .logo span { color: var(--accent); }
-
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-}
-
-nav a {
-  color: var(--text-dim);
-  text-decoration: none;
-  font-size: 0.85rem;
-  font-weight: 400;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  transition: color 0.3s;
-}
-
-nav a:hover { color: var(--accent); }
-
-/* === HERO === */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 6rem 2rem 4rem;
-  position: relative;
-  background:
-    radial-gradient(ellipse at 20% 50%, rgba(192,57,43,0.08) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 50%, rgba(212,168,83,0.05) 0%, transparent 50%),
-    var(--bg);
-}
-
-.hero-content { max-width: 800px; }
-
-.hero h1 {
-  font-family: var(--heading);
-  font-size: clamp(2.8rem, 6vw, 5rem);
-  font-weight: 900;
-  line-height: 1.1;
-  margin-bottom: 0.5rem;
-  letter-spacing: -1px;
-  animation: fadeUp 1s ease-out;
-}
-
-.hero h1 span {
-  background: linear-gradient(135deg, var(--accent), var(--accent-glow), var(--gold));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.hero .tagline {
-  font-family: var(--heading);
-  font-size: clamp(1rem, 2.2vw, 1.4rem);
-  font-weight: 400;
-  font-style: italic;
-  color: var(--text-dim);
-  margin-bottom: 2rem;
-  animation: fadeUp 1s ease-out 0.2s both;
-}
-
-.hero .stats {
-  display: flex;
-  justify-content: center;
-  gap: 3rem;
-  flex-wrap: wrap;
-  margin-bottom: 2.5rem;
-  animation: fadeUp 1s ease-out 0.4s both;
-}
-
-.hero .stat-item { text-align: center; }
-
-.hero .stat-num {
-  font-family: var(--heading);
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--accent);
-  display: block;
-}
-
-.hero .stat-label {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--text-dim);
-}
-
-.hero .cta-row {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  animation: fadeUp 1s ease-out 0.6s both;
-}
-
-.btn {
-  display: inline-block;
-  padding: 0.9rem 2.2rem;
-  font-family: var(--body);
-  font-size: 0.85rem;
-  font-weight: 500;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  text-decoration: none;
-  border-radius: 2px;
-  transition: all 0.3s;
-  cursor: pointer;
-}
-
-.btn-primary {
-  background: var(--accent);
-  color: #fff;
-  border: 1px solid var(--accent);
-}
-
-.btn-primary:hover {
-  background: transparent;
-  color: var(--accent);
-  box-shadow: 0 0 30px rgba(192,57,43,0.3);
-}
-
-.btn-outline {
-  background: transparent;
-  color: var(--text);
-  border: 1px solid rgba(255,255,255,0.2);
-}
-
-.btn-outline:hover {
-  border-color: var(--gold);
-  color: var(--gold);
-}
-
-/* === SECTIONS === */
-section {
-  padding: 6rem 2rem;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.section-title {
-  font-family: var(--heading);
-  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  position: relative;
-}
-
-.section-title span { color: var(--accent); }
-
-.section-subtitle {
-  color: var(--text-dim);
-  font-size: 1rem;
-  margin-bottom: 3rem;
-  font-style: italic;
-  font-family: var(--heading);
-}
-
-/* === ABOUT === */
-#about {
-  background: var(--bg2);
-  max-width: none;
-  padding: 6rem 2rem;
-}
-
-#about .about-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: start;
-}
-
-.about-text p {
-  margin-bottom: 1.2rem;
-  font-size: 1rem;
-  color: var(--text);
-}
-
-.about-text strong { color: var(--gold); font-weight: 600; }
-
-.about-highlights {
-  display: grid;
-  gap: 1.5rem;
-}
-
-.highlight-card {
-  background: var(--bg3);
-  border-left: 3px solid var(--accent);
-  padding: 1.5rem;
-  border-radius: 0 4px 4px 0;
-  transition: transform 0.3s;
-}
-
-.highlight-card:hover { transform: translateX(8px); }
-
-.highlight-card h3 {
-  font-family: var(--heading);
-  font-size: 1.1rem;
-  margin-bottom: 0.3rem;
-  color: var(--accent);
-}
-
-.highlight-card p {
-  font-size: 0.9rem;
-  color: var(--text-dim);
-}
-
-/* === VIDEO REEL === */
-.video-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
-}
-
-.video-card {
-  background: var(--bg2);
-  border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 4px;
-  overflow: hidden;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.video-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-}
-
-.video-thumb {
-  width: 100%;
-  aspect-ratio: 16/9;
-  background: var(--bg3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.video-thumb::before {
-  content: '▶';
-  font-size: 3rem;
-  color: rgba(255,255,255,0.7);
-  z-index: 2;
-  transition: transform 0.3s;
-}
-
-.video-card:hover .video-thumb::before { transform: scale(1.2); }
-
-.video-thumb::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(192,57,43,0.2), rgba(0,0,0,0.5));
-}
-
-.video-info {
-  padding: 1.5rem;
-}
-
-.video-info h3 {
-  font-family: var(--heading);
-  font-size: 1.15rem;
-  margin-bottom: 0.4rem;
-}
-
-.video-info .tag {
-  display: inline-block;
-  background: rgba(192,57,43,0.15);
-  color: var(--accent);
-  padding: 0.2rem 0.7rem;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border-radius: 2px;
-  margin-right: 0.5rem;
-  margin-bottom: 0.4rem;
-}
-
-.video-info p {
-  color: var(--text-dim);
-  font-size: 0.9rem;
-  margin-top: 0.6rem;
-}
-
-/* === WRITING === */
-.writing-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-}
-
-.writing-card {
-  background: var(--bg2);
-  border: 1px solid rgba(255,255,255,0.05);
-  padding: 2rem;
-  border-radius: 4px;
-  position: relative;
-  overflow: hidden;
-  transition: border-color 0.3s;
-}
-
-.writing-card:hover { border-color: var(--accent); }
-
-.writing-card::before {
-  content: attr(data-number);
-  position: absolute;
-  top: -10px;
-  right: 15px;
-  font-family: var(--heading);
-  font-size: 5rem;
-  font-weight: 900;
-  color: rgba(192,57,43,0.07);
-}
-
-.writing-card h3 {
-  font-family: var(--heading);
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-  color: var(--gold);
-}
-
-.writing-card p {
-  font-size: 0.9rem;
-  color: var(--text-dim);
-}
-
-/* === SKILLS === */
-#skills { background: var(--bg2); max-width: none; }
-
-#skills .skills-inner { max-width: 1100px; margin: 0 auto; }
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
-
-.skill-group {
-  background: var(--bg3);
-  padding: 1.8rem;
-  border-radius: 4px;
-  border-top: 2px solid var(--accent);
-}
-
-.skill-group h3 {
-  font-family: var(--heading);
-  font-size: 1rem;
-  color: var(--accent);
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.skill-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.skill-tag {
-  background: rgba(255,255,255,0.05);
-  color: var(--text-dim);
-  padding: 0.35rem 0.8rem;
-  font-size: 0.8rem;
-  border-radius: 2px;
-  transition: all 0.3s;
-}
-
-.skill-tag:hover {
-  background: rgba(192,57,43,0.15);
-  color: var(--accent);
-}
-
-/* === CONTACT === */
-#contact { text-align: center; }
-
-.contact-links {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-  margin-top: 2rem;
-}
-
-.contact-item {
-  text-align: center;
-  min-width: 160px;
-}
-
-.contact-item .label {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--text-dim);
-  margin-bottom: 0.3rem;
-}
-
-.contact-item .value {
-  font-family: var(--heading);
-  font-size: 1.05rem;
-  color: var(--text);
-}
-
-.contact-item a {
-  color: var(--accent);
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.contact-item a:hover { color: var(--gold); }
-
-/* === FOOTER === */
-footer {
-  text-align: center;
-  padding: 3rem 2rem;
-  border-top: 1px solid rgba(255,255,255,0.05);
-  color: var(--text-dim);
-  font-size: 0.85rem;
-}
-
-/* === ANIMATIONS === */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* === RESPONSIVE === */
-@media (max-width: 768px) {
-  nav ul { display: none; }
-  #about .about-inner { grid-template-columns: 1fr; gap: 2rem; }
-  .hero .stats { gap: 1.5rem; }
-  section { padding: 4rem 1.5rem; }
-}
-</style>
-<link type="text/css" rel="stylesheet" charset="UTF-8" href="./Victoria Stellar — AI Content Creator &amp; Bestselling Author_files/m=el_main_css"></head>
-<body>
-
-<!-- NAVIGATION -->
-<nav>
-  <div class="nav-inner">
-    <div class="logo"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">В. </font><font dir="auto" style="vertical-align: inherit;">ЗВЕЗДНЫЙ</font></font><span><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">​</font></font></span><font dir="auto" style="vertical-align: inherit;"></font></div>
-    <ul>
-      <li><a href="file:///Users/ramzena/Downloads/portfolio_victoria_stellar.html#about"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">О</font></font></a></li>
-      <li><a href="file:///Users/ramzena/Downloads/portfolio_victoria_stellar.html#reel"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Видеоролик</font></font></a></li>
-      <li><a href="file:///Users/ramzena/Downloads/portfolio_victoria_stellar.html#writing"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Письмо</font></font></a></li>
-      <li><a href="file:///Users/ramzena/Downloads/portfolio_victoria_stellar.html#skills"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Навыки</font></font></a></li>
-      <li><a href="file:///Users/ramzena/Downloads/portfolio_victoria_stellar.html#contact"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Контакт</font></font></a></li>
-    </ul>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-content">
-    <h1><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Виктория </font></font><span><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Стеллар</font></font></span></h1>
-    <p class="tagline"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Создатель контента с использованием ИИ • Сценарист • Автор бестселлеров</font></font></p>
-    <div class="stats">
-      <div class="stat-item">
-        <span class="stat-num"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">170+</font></font></span>
-        <span class="stat-label"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Опубликованные романы</font></font></span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">20+</font></font></span>
-        <span class="stat-label"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Годы написания</font></font></span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">500 тыс.+</font></font></span>
-        <span class="stat-label"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Читатели</font></font></span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Полный</font></font></span>
-        <span class="stat-label"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Конвейер искусственного интеллекта</font></font></span>
-      </div>
-    </div>
-    <div class="cta-row">
-      <a href="file:///Users/ramzena/Downloads/portfolio_victoria_stellar.html#reel" class="btn btn-primary"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Посмотрите мою работу</font></font></a>
-      <a href="file:///Users/ramzena/Downloads/portfolio_victoria_stellar.html#contact" class="btn btn-outline"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Свяжитесь с нами</font></font></a>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="about-inner">
-    <div class="about-text">
-      <h2 class="section-title"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Обо </font></font><span><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">мне</font></font></span></h2>
-      <p class="section-subtitle"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Рассказчик за экраном</font></font></p>
-      <p><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Я — </font></font><strong><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">автор бестселлеров в жанре романтической литературы</font></font></strong><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;"> с более чем 20-летним профессиональным опытом работы и </font></font><strong><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">более чем 170 опубликованными романами</font></font></strong><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;"> в жанрах мрачной романтики, современной романтики, фэнтези и психологической драмы.</font></font></p>
-      <p><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Мои книги, опубликованные под разными псевдонимами — </font></font><strong><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Ульяна Соболева</font></font></strong><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;"> , </font></font><strong><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Мелания Соболева</font></font></strong><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;"> и другими, — прочитали более 500 000 читателей на таких платформах, как LitRes, MyBook, Bookmate и Amazon.</font></font></p>
-      <p><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">В 2024 году я расширил свою деятельность, </font></font><strong><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">занявшись производством видеоконтента с использованием искусственного интеллекта</font></font></strong><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;"> , самостоятельно создавая кинематографические трейлеры, анимационные сериалы и короткометражные драматические фильмы. Я отвечаю за весь процесс: написание сценария, создание визуального ряда, озвучивание, звуковое оформление, монтаж и постпродакшн.</font></font></p>
-      <p><strong><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Моя уникальная ценность:</font></font></strong><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;"> я — редкое сочетание мастера повествования, понимающего суть эпизодического темпа, основанного на захватывающих моментах, и технических возможностей для создания видеоконтента с использованием ИИ в больших масштабах. Большинству создателей контента с помощью ИИ не хватает глубины повествования. Большинству сценаристов не хватает навыков производства. Я предлагаю и то, и другое.</font></font></p>
-    </div>
-    <div class="about-highlights">
-      <div class="highlight-card fade-in">
-        <h3><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Более 170 романов</font></font></h3>
-        <p><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Каждая книга представляет собой готовый объект интеллектуальной собственности для экранизации в виде сериала. 60–100 эпизодов на книгу.</font></font></p>
-      </div>
-      <div class="highlight-card fade-in">
-        <h3><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Полный конвейер ИИ</font></font></h3>
-        <p><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Концепция → Сценарий → Раскадровка → Визуальное оформление → Озвучка → Музыка → Монтаж → Выпуск</font></font></p>
-      </div>
-      <div class="highlight-card fade-in">
-        <h3><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Образование в области изобразительных искусств</font></font></h3>
-        <p><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Харьковский национальный педагогический университет, факультет искусств (2002). Развитое чувство композиции и цвета.</font></font></p>
-      </div>
-      <div class="highlight-card fade-in">
-        <h3><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Устойчивость в зонах боевых действий</font></font></h3>
-        <p><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Переехала из Харькова семья из 7 человек, сохранив при этом полную творческую активность. Выполняю работу в любых условиях.</font></font></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- VIDEO REEL -->
-<section id="reel">
-  <h2 class="section-title"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Видеоролик</font></font><span><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">​</font></font></span></h2>
-  <p class="section-subtitle"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Контент, созданный с помощью ИИ — от концепции до финального монтажа, всё сделано мной.</font></font></p>
-
-  <div class="video-grid">
-
-    <a class="video-card fade-in" href="file:///Users/ramzena/Downloads/YOUR_YOUTUBE_LINK_CHUCHI" target="_blank" style="text-decoration:none;color:inherit;">
-      <div class="video-thumb" style="background: linear-gradient(135deg, #2d1b69, #1a1a2e);"></div>
-      <div class="video-info">
-        <div><span class="tag"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Анимация</font></font></span><span class="tag"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Образование</font></font></span><span class="tag"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">YouTube</font></font></span></div>
-        <h3><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">«ЧУЧИ» — мультсериал AI</font></font></h3>
-        <p><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Образовательный анимационный сериал для малышей. Оригинальные персонажи, музыка, сюжетные линии. Полностью создан с помощью искусственного интеллекта. Опубликовано на YouTube.</font></font></p>
-      </div>
-    </a>
-
-    <a class="video-card fade-in" href="file:///Users/ramzena/Downloads/YOUR_YOUTUBE_LINK_LAST_ORDER" target="_blank" style="text-decoration:none;color:inherit;">
-      <div class="video-thumb" style="background: linear-gradient(135deg, #1a2a1a, #0a0a0f);"></div>
-      <div class="video-info">
-        <div><span class="tag"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Кинематографический</font></font></span><span class="tag"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Вторая мировая война</font></font></span><span class="tag"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Трейлер</font></font></span></div>
-        <h3><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">«ПОСЛЕДНИЙ ПРИКАЗ» — Кинематографический трейлер с использованием искусственного интеллекта</font></font></h3>
-        <p><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Трейлер военной драмы о Второй мировой войне. Видеогенерация с помощью Kling AI / Veo 3 + оригинальная музыка Suno AI + монтаж в DaVinci Resolve.</font></font></p>
-      </div>
-    </a>
-
-    <a class="video-card fade-in" href="file:///Users/ramzena/Downloads/YOUR_YOUTUBE_LINK_BETRAYAL" target="_blank" style="text-decoration:none;color:inherit;">
-      <div class="video-thumb" style="background: linear-gradient(135deg, #2e0a0a, #0a0a0f);"></div>
-      <div class="video-info">
-        <div><span class="tag"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Мрачный роман</font></font></span><span class="tag"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Вертикальная серия</font></font></span><span class="tag"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Пилот</font></font></span></div>
-        <h3><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">«Предательство без пощады» — короткая драма</font></font></h3>
-        <p><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Пилотный эпизод вертикального романтического сериала. Сценарий адаптирован по моему собственному роману. Визуализация с использованием ИИ, озвучка, музыка, монтаж. Формат короткометражки/моей драмы.</font></font></p>
-      </div>
-    </a>
-
-  </div>
-</section>
-
-<!-- WRITING -->
-<section id="writing" style="background: var(--bg2); max-width: none;">
-  <div style="max-width: 1100px; margin: 0 auto;">
-    <h2 class="section-title"><font dir="auto" style="vertical-align: inherit;"><span><font dir="auto" style="vertical-align: inherit;">Портфолио</font></span><font dir="auto" style="vertical-align: inherit;"> письменных работ</font></font><span><font dir="auto" style="vertical-align: inherit;"></font></span></h2>
-    <p class="section-subtitle"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">20 лет, более 170 романов, миллионы слов, которые заставляют читателей переворачивать страницы.</font></font></p>
-
-    <div class="writing-grid">
-      <div class="writing-card fade-in" data-number="01">
-        <h3><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Мрачный роман</font></font></h3>
-        <p><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Более 60 работ под псевдонимом Ульяна Соболева. Одержимость, динамика власти, запретное желание, сюжетные линии мести, морально неоднозначные герои. Один из самых успешных жанров на рынке микродрам.</font></font></p>
-      </div>
-      <div class="writing-card fade-in" data-number="02">
-        <h3><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Современный роман</font></font></h3>
-        <p><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Эмоциональная глубина, сложные взаимоотношения, жизненная драма. Публикуется под псевдонимом Мелания Соболева и другими.</font></font></p>
-      </div>
-      <div class="writing-card fade-in" data-number="03">
-        <h3><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Фэнтези и исторические</font></font></h3>
-        <p>World-building, period settings, magical realism. Demonstrates versatility beyond romance genre.</p>
-      </div>
-      <div class="writing-card fade-in" data-number="04">
-        <h3>Screenwriting</h3>
-        <p>Adapted own novels into vertical series screenplays. Cliffhanger-driven episodic pacing, 1–3 minute episodes, mobile-first format.</p>
-      </div>
-    </div>
-
-    <div style="text-align:center; margin-top: 3rem;">
-      <p style="color: var(--text-dim); font-style: italic; font-family: var(--heading); font-size: 1.1rem;">
-        "Every chapter ending in my books is a cliffhanger — the exact mechanic that drives microdrama retention."
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-  <div class="skills-inner">
-    <h2 class="section-title">Skills &amp; <span>Tools</span></h2>
-    <p class="section-subtitle">Everything needed to create content from script to screen</p>
-
-    <div class="skills-grid">
-      <div class="skill-group fade-in">
-        <h3>AI Video Production</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">Kling AI</span>
-          <span class="skill-tag">Veo 3</span>
-          <span class="skill-tag">Runway ML</span>
-          <span class="skill-tag">Midjourney</span>
-          <span class="skill-tag">DALL-E</span>
-          <span class="skill-tag">Suno AI</span>
-          <span class="skill-tag">ElevenLabs</span>
-          <span class="skill-tag">HeyGen</span>
-          <span class="skill-tag">Pika Labs</span>
-        </div>
-      </div>
-      <div class="skill-group fade-in">
-        <h3>Editing &amp; Post</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">DaVinci Resolve</span>
-          <span class="skill-tag">CapCut</span>
-          <span class="skill-tag">Adobe Premiere</span>
-        </div>
-      </div>
-      <div class="skill-group fade-in">
-        <h3>Writing &amp; Narrative</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">Novel Writing</span>
-          <span class="skill-tag">Screenwriting</span>
-          <span class="skill-tag">Episodic Structure</span>
-          <span class="skill-tag">Cliffhanger Pacing</span>
-          <span class="skill-tag">Character Arcs</span>
-          <span class="skill-tag">Dialogue</span>
-        </div>
-      </div>
-      <div class="skill-group fade-in">
-        <h3>AI &amp; Prompt Engineering</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">ChatGPT</span>
-          <span class="skill-tag">Claude AI</span>
-          <span class="skill-tag">Complex Prompts</span>
-          <span class="skill-tag">Character Consistency</span>
-          <span class="skill-tag">Multi-Tool Pipelines</span>
-        </div>
-      </div>
-      <div class="skill-group fade-in">
-        <h3>Visual Arts</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">Drawing</span>
-          <span class="skill-tag">Digital Illustration</span>
-          <span class="skill-tag">Composition</span>
-          <span class="skill-tag">Color Theory</span>
-          <span class="skill-tag">Storyboarding</span>
-        </div>
-      </div>
-      <div class="skill-group fade-in">
-        <h3>Languages</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">Russian — Native</span>
-          <span class="skill-tag">Ukrainian — Native</span>
-          <span class="skill-tag">English — Professional</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <h2 class="section-title">Get in <span>Touch</span></h2>
-  <p class="section-subtitle">Open for collaboration, full-time remote, and freelance projects</p>
-
-  <div class="contact-links">
-    <div class="contact-item fade-in">
-      <div class="label">Email</div>
-      <div class="value"><a href="mailto:ramzena@gmail.com">ramzena@gmail.com</a></div>
-    </div>
-    <div class="contact-item fade-in">
-      <div class="label">Telegram</div>
-      <div class="value"><a href="https://t.me/uliana_Soboleva_avtorka" target="_blank">@uliana_Soboleva_avtorka</a></div>
-    </div>
-    <div class="contact-item fade-in">
-      <div class="label">LinkedIn</div>
-      <div class="value"><a href="https://linkedin.com/in/victoriastellar" target="_blank">victoriastellar</a></div>
-    </div>
-    <div class="contact-item fade-in">
-      <div class="label">YouTube</div>
-      <div class="value"><a href="https://youtube.com/@VictoriaStellarAI" target="_blank">@VictoriaStellarAI</a></div>
-    </div>
-  </div>
-
-  <div style="margin-top: 3rem;">
-    <a href="mailto:ramzena@gmail.com" class="btn btn-primary">Hire Me</a>
-  </div>
-</section>
-
-<footer>
-  <p>© 2026 Victoria Stellar. All rights reserved.</p>
-  <p style="margin-top: 0.5rem; font-size: 0.75rem;">AI Content Creator • Screenwriter • Author of 170+ Novels</p>
-</footer>
-
-<!-- SCROLL ANIMATION -->
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const faders = document.querySelectorAll('.video-card, .highlight-card, .writing-card, .skill-group, .contact-item');
-  faders.forEach(el => el.classList.add('fade-in'));
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
-
-  faders.forEach(el => observer.observe(el));
-});
-</script><div id="goog-gt-tt" class="VIpgJd-yAWNEb-L7lbkb skiptranslate" style="border-radius: 12px; margin: 0 0 0 -23px; padding: 0; font-family: &#39;Google Sans&#39;, Arial, sans-serif;" data-id=""><div id="goog-gt-vt" class="VIpgJd-yAWNEb-hvhgNd"><div class="VIpgJd-yAWNEb-hvhgNd-Ud7fr"><img src="./Victoria Stellar — AI Content Creator &amp; Bestselling Author_files/24px.svg" width="24" height="24" alt=""><div class=" VIpgJd-yAWNEb-hvhgNd-IuizWc-i3jM8c " dir="ltr">Исходный текст</div></div><div class="VIpgJd-yAWNEb-hvhgNd-k77Iif"><div id="goog-gt-original-text" class="VIpgJd-yAWNEb-nVMfcd-fmcmS VIpgJd-yAWNEb-hvhgNd-axAV1"></div></div><div class="VIpgJd-yAWNEb-hvhgNd-N7Eqid ltr"><div class="VIpgJd-yAWNEb-hvhgNd-N7Eqid-B7I4Od ltr" dir="ltr"><div class="VIpgJd-yAWNEb-hvhgNd-UTujCb">Оцените этот перевод</div><div class="VIpgJd-yAWNEb-hvhgNd-eO9mKe">Ваш отзыв поможет нам улучшить Google Переводчик</div></div><div class="VIpgJd-yAWNEb-hvhgNd-xgov5 ltr"><button id="goog-gt-thumbUpButton" type="button" class="VIpgJd-yAWNEb-hvhgNd-bgm6sf" title="Хороший перевод" aria-label="Хороший перевод" aria-pressed="false"><span id="goog-gt-thumbUpIcon"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M21 7h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 0S7.08 6.85 7 7H2v13h16c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73V9c0-1.1-.9-2-2-2zM7 18H4V9h3v9zm14-7l-3 7H9V8l4.34-4.34L12 9h9v2z"></path></svg></span><span id="goog-gt-thumbUpIconFilled"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M21 7h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 0S7.08 6.85 7 7v13h11c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73V9c0-1.1-.9-2-2-2zM5 7H1v13h4V7z"></path></svg></span></button><button id="goog-gt-thumbDownButton" type="button" class="VIpgJd-yAWNEb-hvhgNd-bgm6sf" title="Плохой перевод" aria-label="Плохой перевод" aria-pressed="false"><span id="goog-gt-thumbDownIcon"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M3 17h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 24s7.09-6.85 7.17-7h5V4H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2zM17 6h3v9h-3V6zM3 13l3-7h9v10l-4.34 4.34L12 15H3v-2z"></path></svg></span><span id="goog-gt-thumbDownIconFilled"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M3 17h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 24s7.09-6.85 7.17-7V4H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2zm16 0h4V4h-4v13z"></path></svg></span></button></div></div><div id="goog-gt-votingHiddenPane" class="VIpgJd-yAWNEb-hvhgNd-aXYTce"><form id="goog-gt-votingForm" action="file://translate.googleapis.com/translate_voting?client=te_lib" method="post" target="votingFrame" class="VIpgJd-yAWNEb-hvhgNd-aXYTce"><input type="text" name="sl" id="goog-gt-votingInputSrcLang"><input type="text" name="tl" id="goog-gt-votingInputTrgLang"><input type="text" name="query" id="goog-gt-votingInputSrcText"><input type="text" name="gtrans" id="goog-gt-votingInputTrgText"><input type="text" name="vote" id="goog-gt-votingInputVote"></form><iframe name="votingFrame" frameborder="0" src="./Victoria Stellar — AI Content Creator &amp; Bestselling Author_files/saved_resource.html"></iframe></div></div></div>
-
-
-
-</body></html>
+<html lang="en" class="translated-ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Victoria Stellar — AI Content Creator & Bestselling Author</title>
+    <link href="./Victoria Stellar — AI Content Creator & Bestselling Author_files/css2" rel="stylesheet">
+    <style>
+              :root {
+                            --bg: #0a0a0f;
+                            --bg2: #121212;
+                            --bg3: #1a1a28;
+                            --text: #e8e6e3;
+                            --text-dim: #8a8a9e;
+                            --accent: #c0392b;
+                            --accent-glow: #e74c3c;
+                            --gold: #d4af37;
+                            --heading: 'Playfair Display', Georgia, serif;
+                            --body: 'Raleway', sans-serif;
+              }
+
+              * {
+                            margin: 0;
+                            padding: 0;
+                            box-sizing: border-box;
+              }
+
+              html, body {
+                            width: 100%;
+                            height: 100%;
+              }
+
+              body {
+                            background: linear-gradient(135deg, var(--bg) 0%, var(--bg2) 50%, var(--bg3) 100%);
+                            color: var(--text);
+                            font-family: var(--body);
+                            line-height: 1.6;
+                            overflow-x: hidden;
+              }
+
+              /* Navigation */
+              nav {
+                            position: fixed;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            padding: 2rem;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            background: rgba(10, 10, 15, 0.95);
+                            backdrop-filter: blur(10px);
+                            z-index: 1000;
+                            border-bottom: 1px solid rgba(192, 57, 43, 0.2);
+              }
+
+              nav .logo {
+                            font-family: var(--heading);
+                            font-size: 1.5rem;
+                            font-weight: 700;
+                            color: var(--accent-glow);
+              }
+
+              nav ul {
+                            list-style: none;
+                            display: flex;
+                            gap: 2rem;
+                            align-items: center;
+              }
+
+              nav a {
+                            color: var(--text);
+                            text-decoration: none;
+                            font-size: 0.95rem;
+                            text-transform: uppercase;
+                            letter-spacing: 1px;
+                            transition: color 0.3s ease;
+              }
+
+              nav a:hover {
+                            color: var(--accent-glow);
+              }
+
+              /* Hero Section */
+              .hero {
+                            min-height: 100vh;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            text-align: center;
+                            padding: 2rem;
+                            position: relative;
+                            overflow: hidden;
+              }
+
+              .hero::before {
+                            content: '';
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            width: 500px;
+                            height: 500px;
+                            background: radial-gradient(circle, rgba(224, 76, 60, 0.15) 0%, transparent 70%);
+                            filter: blur(40px);
+                            z-index: 0;
+              }
+
+              .hero-content {
+                            position: relative;
+                            z-index: 1;
+                            max-width: 900px;
+              }
+
+              h1 {
+                            font-family: var(--heading);
+                            font-size: clamp(3rem, 8vw, 5.5rem);
+                            font-weight: 700;
+                            line-height: 1.1;
+                            margin-bottom: 1rem;
+                            color: var(--text);
+              }
+
+              h1 .accent {
+                            color: var(--accent-glow);
+              }
+
+              .tagline {
+                            font-family: var(--heading);
+                            font-size: clamp(1.2rem, 3vw, 1.8rem);
+                            color: var(--text-dim);
+                            margin-bottom: 2.5rem;
+                            font-style: italic;
+              }
+
+              .stats {
+                            display: grid;
+                            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                            gap: 2rem;
+                            margin-bottom: 3rem;
+                            justify-items: center;
+              }
+
+              .stat {
+                            text-align: center;
+              }
+
+              .stat-number {
+                            font-family: var(--heading);
+                            font-size: clamp(2.5rem, 5vw, 3.5rem);
+                            font-weight: 700;
+                            color: var(--accent-glow);
+                            margin-bottom: 0.5rem;
+              }
+
+              .stat-label {
+                            color: var(--text-dim);
+                            font-size: 0.9rem;
+                            text-transform: uppercase;
+                            letter-spacing: 1px;
+              }
+
+              /* Full Portfolio Section */
+              .full-portfolio {
+                            text-align: center;
+                            margin-bottom: 2.5rem;
+              }
+
+              .full-portfolio h2 {
+                            font-family: var(--heading);
+                            font-size: clamp(2rem, 5vw, 3.5rem);
+                            color: var(--accent-glow);
+                            margin-bottom: 1rem;
+              }
+
+              .portfolio-subtitle {
+                            color: var(--text-dim);
+                            font-size: 1.1rem;
+                            margin-bottom: 2rem;
+              }
+
+              /* CTA Buttons */
+              .cta-buttons {
+                            display: flex;
+                            flex-wrap: wrap;
+                            gap: 1.5rem;
+                            justify-content: center;
+                            margin-top: 2rem;
+              }
+
+              button, .cta-btn {
+                            padding: 1rem 2.5rem;
+                            font-size: 1rem;
+                            text-transform: uppercase;
+                            letter-spacing: 1.5px;
+                            border: none;
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+                            font-family: var(--body);
+                            font-weight: 600;
+              }
+
+              .btn-primary {
+                            background: var(--accent-glow);
+                            color: white;
+              }
+
+              .btn-primary:hover {
+                            background: var(--accent);
+                            box-shadow: 0 0 20px rgba(224, 76, 60, 0.5);
+              }
+
+              .btn-secondary {
+                            background: transparent;
+                            color: var(--text);
+                            border: 2px solid var(--accent-glow);
+              }
+
+              .btn-secondary:hover {
+                            background: var(--accent-glow);
+                            color: white;
+              }
+
+              /* About Section */
+              .about {
+                            min-height: 100vh;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            padding: 4rem 2rem;
+                            background: linear-gradient(180deg, rgba(10, 10, 15, 0.8), rgba(18, 18, 18, 0.8));
+              }
+
+              .about-content {
+                            max-width: 800px;
+                            text-align: center;
+              }
+
+              .about h2 {
+                            font-family: var(--heading);
+                            font-size: 3rem;
+                            margin-bottom: 2rem;
+                            color: var(--accent-glow);
+              }
+
+              .about p {
+                            font-size: 1.1rem;
+                            line-height: 1.8;
+                            color: var(--text);
+                            margin-bottom: 1.5rem;
+              }
+
+              /* Footer */
+              footer {
+                            background: var(--bg2);
+                            color: var(--text-dim);
+                            text-align: center;
+                            padding: 2rem;
+                            border-top: 1px solid rgba(192, 57, 43, 0.2);
+              }
+
+              footer p {
+                            margin: 0.5rem 0;
+              }
+
+              /* Responsive */
+              @media (max-width: 768px) {
+                            nav {
+                                              flex-direction: column;
+                                              padding: 1rem;
+                                              gap: 1rem;
+                            }
+
+                            nav ul {
+                                              gap: 1rem;
+                            }
+
+                            .stats {
+                                              gap: 1rem;
+                            }
+
+                            .cta-buttons {
+                                              flex-direction: column;
+                            }
+
+                            button, .cta-btn {
+                                              width: 100%;
+                            }
+              }
+
+              /* Animations */
+              @keyframes fadeIn {
+                            from {
+                                              opacity: 0;
+                                              transform: translateY(20px);
+                            }
+                            to {
+                                              opacity: 1;
+                                              transform: translateY(0);
+                            }
+              }
+
+              .hero-content {
+                            animation: fadeIn 0.8s ease-out;
+              }
+
+              /* Text animation on scroll */
+              .fade-in {
+                            opacity: 0;
+                            transform: translateY(30px);
+                            transition: all 0.6s ease;
+              }
+
+              .fade-in.visible {
+                            opacity: 1;
+                            transform: translateY(0);
+              }
+          </style>
+</head>
+
+  <body>
+        <!-- Navigation -->
+        <nav>
+                  <div class="logo">V. STELLAR</div>div>
+                  <ul>
+                                <li><a href="#home">HOME</a>a></li>
+                              <li><a href="#video">VIDEO</a>a></li>
+                              <li><a href="#books">BOOKS</a>a></li>
+                              <li><a href="#achievements">SKILLS</a>a></li>
+                              <li><a href="#contact">CONTACT</a>a></li>
+                  </ul>
+        </nav>
+  
+      <!-- Hero Section -->
+      <section class="hero" id="home">
+              <div class="hero-content">
+                          <h1>Victoria <span class="accent">Stellar</span>span></h1>
+                          <p class="tagline">AI Content Creator • Screenwriter • Bestselling Author</p>p>
+              
+                          <div class="stats">
+                                          <div class="stat">
+                                                              <div class="stat-number">170+</div>div>
+                                                              <div class="stat-label">Published Novels</div>div>
+                                          </div>div>
+                                          <div class="stat">
+                                                              <div class="stat-number">20+</div>div>
+                                                              <div class="stat-label">Years Writing</div>div>
+                                          </div>div>
+                                          <div class="stat">
+                                                              <div class="stat-number">500K+</div>div>
+                                                              <div class="stat-label">Readers</div>div>
+                                          </div>div>
+                          </div>div>
+              
+                          <div class="full-portfolio">
+                                          <h2>Full Service</h2>
+                                          <p class="portfolio-subtitle">AI-powered Content Creator</p>p>
+                          </div>div>
+              
+                          <div class="cta-buttons">
+                                          <button class="btn-primary">View My Work</button>button>
+                                          <button class="btn-secondary">Get In Touch</button>button>
+                          </div>div>
+              </div>div>
+      </section>section>
+  
+      <!-- About Section -->
+      <section class="about" id="about">
+              <div class="about-content">
+                          <h2>About Me</h2>
+                          <p>I'm a passionate content creator with expertise in AI-driven storytelling, screenwriting, and novel writing. With over 20 years of experience, I've published 170+ novels and reached over 500,000 readers worldwide.</p>
+                          <p>My unique blend of traditional writing craft and cutting-edge AI technology allows me to create compelling narratives that resonate with diverse audiences.</p>
+              </div>div>
+      </section>section>
+  
+      <!-- Footer -->
+      <footer>
+                <p>&copy; 2024 Victoria Stellar. All rights reserved.</p>p>
+                <p>Email: victoria@stellar.com | Phone: +1 (555) 123-4567</p>p>
+      </footer>
+
+        <script>
+                  // Smooth scroll navigation
+                  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                                anchor.addEventListener('click', function (e) {
+                                                  e.preventDefault();
+                                                  const target = document.querySelector(this.getAttribute('href'));
+                                                  if (target) {
+                                                                        target.scrollIntoView({ behavior: 'smooth' });
+                                                  }
+                                });
+                  });
+
+                  // Scroll animations
+                  const observerOptions = {
+                                threshold: 0.1,
+                                rootMargin: '0px 0px -100px 0px'
+                  };
+
+                  const observer = new IntersectionObserver(function(entries) {
+                                entries.forEach(entry => {
+                                                  if (entry.isIntersecting) {
+                                                                        entry.target.classList.add('visible');
+                                                  }
+                                });
+                  }, observerOptions);
+
+                  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        </script>
+  </body>
+</html>html>
+        </script>
+      </footer></p></p></h2></h1></li></li>
+                  </ul>
+        </nav>
+  </body>
+    </style></title></head>
